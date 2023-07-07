@@ -7,8 +7,8 @@ const migracoes: Map<number, MigracaoDB> = new Map<number, MigracaoDB>();
 migracoes.set(1, {
   consultas: [
     {
-      model: 'Dependentes',
-      query: `ALTER TABLE Dependentes ADD atributo_adicionado VARCHAR(45);`,
+      model: 'Funcionarios',
+      query: `ALTER TABLE Funcionarios DROP idade;`,
     },
   ],
 });
@@ -16,8 +16,26 @@ migracoes.set(1, {
 migracoes.set(2, {
   consultas: [
     {
-      model: 'Dependentes',
-      query: `ALTER TABLE Dependentes ADD atributo_adicionado_2 VARCHAR(45) NOT NULL DEFAULT "";`,
+      model: 'Funcionarios',
+      query: `ALTER TABLE Funcionarios DROP fone;`,
+    },
+  ],
+});
+
+migracoes.set(3, {
+  consultas: [
+    {
+      model: 'Funcionarios',
+      query: `ALTER TABLE Funcionarios DROP endereco;`,
+    },
+  ],
+});
+
+migracoes.set(4, {
+  consultas: [
+    {
+      model: 'Funcionarios',
+      query: `ALTER TABLE Funcionarios ADD COLUMN senha char(100) not null AFTER name;`,
     },
   ],
 });

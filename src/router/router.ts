@@ -11,12 +11,14 @@ router.get('/about', mainController.about);
 router.get('/ui', mainController.ui);
 router.get('/create-cookie', mainController.createCookie);
 router.get('/clean-cookie', mainController.clearCookie);
+router.get('/signup', mainController.signup);
+router.post('/signup', mainController.signup);
 router.get('/login', mainController.login);
 router.post('/login', mainController.login);
 router.get('/logout', mainController.logout);
 
 //Departamento Controller
-router.get('/departamento', checkAuth, departamentoController.index);
+router.get('/departamento', departamentoController.index);
 router.get('/departamento/create', checkAuth, departamentoController.create);
 router.post('/departamento/create', checkAuth, departamentoController.create);
 router.get('/departamento/:id', checkAuth, departamentoController.read);
